@@ -108,7 +108,6 @@ function ThrusterSpeed({
   const { mutate, isPending } = useMutation({
     mutationKey: ["update-speed", name, axis],
     mutationFn: async (payload: any) => {
-      console.log(payload);
       const res = await axios.post<Record<typeof axis, number>>(`${env.API_URL}/sensor/${name}/thruster`, payload);
       return res.data;
     },
